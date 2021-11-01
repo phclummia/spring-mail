@@ -1,0 +1,30 @@
+version: '3.8'
+
+networks:
+  default:
+
+services:
+
+  mysql-database:
+    image: mysql:5.7
+    container_name: mysql-database
+    ports:
+      - 3306:3306
+    volumes:
+      - ./sql/create_database.sql:/docker-entrypoint-initdb.d/create_database.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+
+
+  spring-mail-application:
+    image: spring-mail:latest
+    container_name: spring-mail-app
+    restart: on-failure
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-database:3306/mail-database?autoReconnect=true&useSSL=false
+      MAIL_ADDRESS: mail address
+      MAIL_PASSWORD: mail password
+    depends_on:
+      - mysql-database
+    ports:
+      - 8080:8080
