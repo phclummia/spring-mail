@@ -44,6 +44,15 @@ File Path : [application.yml](./src/main/resources/application.yml)
 
 After package completed, packaged application : [spring-mail-0.0.1.jar](./target/spring-mail-0.0.1.jar)
 
+### 1.1.2. Maven Install With Test
+
+If you want to install or package with Test parts, you need e valid database before. 
+You can run below command with valid database
+
+````shell
+  ./mvnw -DSPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/mail-database install 
+````
+
 ## 1.2. Image Create
 
 
