@@ -76,6 +76,7 @@ Path : [Dockerfile](Dockerfile)
 ````
 
 ### 1.2.3. Docker Image Created
+
 ![Docker Image Created](/assets/docker_image.jpg)
 
 # 2. Docker Compose File
@@ -129,8 +130,8 @@ Related SQL in this path : [create_database.sql](./sql/create_database.sql)
         restart: on-failure
         environment:
           SPRING_DATASOURCE_URL: jdbc:mysql://mysql-database:3306/mail-database?autoReconnect=true&useSSL=false
-          MAIL_ADDRESS: workshop.emrah@gmail.com
-          MAIL_PASSWORD: "*123*qwe1"
+          MAIL_ADDRESS: mail address
+          MAIL_PASSWORD: mail password
         depends_on:
           - mysql-database
         ports:
